@@ -14,16 +14,21 @@
             </div>
           
             <div class="form">
-                <form action="{{route('posts.store')}}" method="post" class="">
+                <form action="{{route('posts.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <label for="">Title</label> <br>
-                    <input type="text" name="title"> <br>
+                    <input type="text" name="title" value="{{old('title')}}"> <br>
                     @error('title')
                         <p style="color: red;">{{$message}}</p>                    
                     @enderror
                     <label for="">Body</label> <br>
-                    <textarea name="body" id="" cols="30" rows="10"></textarea><br>
+                    <textarea name="body" id="" cols="30" rows="10">{{old('body')}}</textarea><br>
                     @error('body')
+                    <p style="color: red;">{{$message}}</p>                    
+                    @enderror
+                    <label for="image">Cover Photo</label> <br>
+                    <input type="file" name="image" id="image"> <br>
+                    @error('image')
                     <p style="color: red;">{{$message}}</p>                    
                     @enderror
                     <button name="post"> Post</button>

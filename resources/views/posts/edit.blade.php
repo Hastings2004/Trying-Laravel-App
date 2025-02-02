@@ -5,7 +5,7 @@
         </div
       
         >
-        <form action="{{route('posts.update', $post)}}" method="post">
+        <form action="{{route('posts.update', $post)}}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <label for="">Title</label> <br>
@@ -18,6 +18,16 @@
             @error('body')
             <p style="color: red;">{{$message}}</p>                    
             @enderror
+            <div>
+
+                <img src="{{asset('storage/'. $post -> image)}}" alt="">
+            
+            </div>
+            <label for="image">Cover Photo</label> <br>
+                    <input type="file" name="image" id="image"> <br>
+                    @error('image')
+                    <p style="color: red;">{{$message}}</p>                    
+                    @enderror
             <button> Update</button>
     
         </form>
