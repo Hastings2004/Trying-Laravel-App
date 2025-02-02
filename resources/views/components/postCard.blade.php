@@ -6,7 +6,7 @@
         
         </div>
         <h2>{{ $post-> title }}</h2>
-        <div>
+        <div style="margin-bottom: 20px">
             <span>Posted {{ $post -> created_at -> diffForHumans() }} by</span>
             <a href="{{route('posts.users', $post -> user)}}" style="color: blue; text-decoration:none;">{{$post -> user -> username}}</a>
         </div>
