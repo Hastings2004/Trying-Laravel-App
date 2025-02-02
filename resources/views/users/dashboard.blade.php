@@ -7,26 +7,29 @@
                     <x-message msg="{{ session('post') }}"/>
                 @elseif (session('delete'))
                     <x-message msg="{{ session('delete') }}"/>
+                @elseif (session('update'))    
+                    <x-message msg="{{ session('update') }}"/>
                 @endif
 
             </div>
           
-           
-            <form action="{{route('posts.store')}}" method="post">
-                @csrf
-                <label for="">Title</label> <br>
-                <input type="text" name="title"> <br>
-                @error('title')
+            <div class="form">
+                <form action="{{route('posts.store')}}" method="post" class="">
+                    @csrf
+                    <label for="">Title</label> <br>
+                    <input type="text" name="title"> <br>
+                    @error('title')
+                        <p style="color: red;">{{$message}}</p>                    
+                    @enderror
+                    <label for="">Body</label> <br>
+                    <textarea name="body" id="" cols="30" rows="10"></textarea><br>
+                    @error('body')
                     <p style="color: red;">{{$message}}</p>                    
-                @enderror
-                <label for="">Body</label> <br>
-                <textarea name="body" id="" cols="30" rows="10"></textarea><br>
-                @error('body')
-                <p style="color: red;">{{$message}}</p>                    
-                @enderror
-                <button name="post"> Post</button>
+                    @enderror
+                    <button name="post"> Post</button>
 
-            </form>
+                </form>
+            </div>
          </div>
          <div style="display:flex; flex-wrap: wrap;">
             @foreach ($posts as $post)

@@ -9,8 +9,45 @@
     <style>
         body{
             font-family: Arial, sans-serif;
+            color: green;
         }
-       
+        .form{
+            background-color: whitesmoke;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            width: fit-content;
+        }
+        .form input{
+            width: 500px;
+            height: 30px;
+            border-radius: 10px;
+            margin-top:15px;
+            margin-bottom :15px;
+            border: 2px solid green;
+        }
+
+        .form textarea{
+            width: 500px;
+            height: 300px;
+            border-radius: 10px;
+            margin-top:15px;
+            margin-bottom :15px;
+            border: 2px solid green;
+        }
+        .form button{
+            width: 505px;
+            height: 32px;
+            border-radius: 5px;
+            border: 2px solid green;
+            background-color: green;
+            color: white;
+
+        }
+        .form button:hover{
+            background-color: rgb(104, 254, 104);
+            cursor: pointer;
+        }
         .link, .home{
              color: white; 
              text-decoration:none;

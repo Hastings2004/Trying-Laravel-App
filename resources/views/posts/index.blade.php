@@ -5,7 +5,7 @@
             <x-postCard :post="$post"/>
         @endforeach
     </div>
-    <div>
+    <div style="width: 100px; height:10px;">
         {{ $posts -> links()}}
     </div>
     

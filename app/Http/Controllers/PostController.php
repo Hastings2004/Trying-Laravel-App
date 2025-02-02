@@ -10,13 +10,14 @@ use App\Http\Requests\UpdatePostRequest;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Request as FacadesRequest;
 use Pest\Plugins\Only;
 
 class PostController extends Controller implements HasMiddleware
 {
     public static function middleware(): array{
         return [
-            //new Middleware('auth', only: ['store']),
+            //new Middleware('auth', only: ['store', 'edit','update']),
             new Middleware('auth', except: ['index', 'show']),
         ];
         
@@ -26,7 +27,6 @@ class PostController extends Controller implements HasMiddleware
      * Display a listing of the resource.
      */
 
-
     public function index()
     {
         $post = Post::latest()->paginate(10);
@@ -35,14 +35,8 @@ class PostController extends Controller implements HasMiddleware
 
     /**
      * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     *
+      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
@@ -78,10 +72,11 @@ class PostController extends Controller implements HasMiddleware
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update(Request $request, Post $post)
     {
         //
         Gate::authorize('modify', $post);
+        
         $field = $request-> validate([
             'title'=> ['required','max:255'],
             'body'=> ['required'],

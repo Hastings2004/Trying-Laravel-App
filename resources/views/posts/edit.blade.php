@@ -14,15 +14,13 @@
                 <p style="color: red;">{{$message}}</p>                    
             @enderror
             <label for="">Body</label> <br>
-            <textarea name="body" id="" value="">{{$post -> body}}</textarea><br>
+            <textarea name="body" id="" cols="30" rows="10">{{$post -> body}}</textarea><br>
             @error('body')
             <p style="color: red;">{{$message}}</p>                    
             @enderror
             <button> Update</button>
     
         </form>
-    
-
     </div>
 
 </x-layout>
