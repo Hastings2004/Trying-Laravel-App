@@ -29,7 +29,7 @@
 
         .form textarea{
             width: 500px;
-            height: 300px;
+            height: 150px;
             border-radius: 10px;
             margin-top:15px;
             margin-bottom :15px;
