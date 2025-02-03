@@ -1,8 +1,7 @@
 <x-layout>
-    <h1 style="margin: 20px">Latest Posts</h1>
+    <h1 style="margin: 20px;">Latest Posts</h1>
 
-    <img src="{{}}" alt="">
-    <div style="display:flex; flex-wrap: wrap;">
+        <div style="display:flex; flex-wrap: wrap;">
         @foreach ($posts as $post)
             <x-postCard :post="$post"/>
         @endforeach
