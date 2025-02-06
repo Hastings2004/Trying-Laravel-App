@@ -90,7 +90,7 @@ class PostController extends Controller implements HasMiddleware
         //
         Gate::authorize('modify', $post);
         
-        $field = $request-> validate([
+        $request-> validate([
             'title'=> ['required','max:255'],
             'body'=> ['required'],
             'image'=> ['required','file', 'max:10000', 'mimes:png,webp,jpg'],
@@ -105,8 +105,6 @@ class PostController extends Controller implements HasMiddleware
          
         }
        
-
-
         $post->update([
             'title'=> $request -> title,
             'body'=> $request -> body,
