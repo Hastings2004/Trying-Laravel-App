@@ -49,12 +49,12 @@ class PostController extends Controller implements HasMiddleware
         $path = null;
         if ($request -> hasFile('image')) {
 
-            $path = Storage::disk('public') -> put('posts_image', $request->image);
+            $path = Storage::disk('public') -> put('posts_image', $request -> image);
          
         }
        
 
-        Auth::user()->posts()->create([
+        $request->user()->posts()->create([
             'title'=> $request -> title,
             'body'=> $request -> body,
             'image'=> $path,

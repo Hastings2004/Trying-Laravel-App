@@ -7,11 +7,13 @@ use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::redirect('/', 'posts');
-Route::resource('posts',PostController::class);
-Route::get('/{user}/posts', [DashboardController::class,'usersPosts'])->name('posts.users');
+
+
 Route::middleware('auth') -> group(function (){
     Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
     Route::post('/logout',[AuthController::class,'logout'])->name('logout');
+    Route::resource('posts',PostController::class);
+    Route::get('/{user}/posts', [DashboardController::class,'usersPosts'])->name('posts.users');
 
 });
 

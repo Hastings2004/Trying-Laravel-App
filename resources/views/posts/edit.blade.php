@@ -20,7 +20,7 @@
             @enderror
             <div>
 
-                <img src="{{asset('storage/'. $post -> image)}}" alt="">
+                <img src="{{asset('storage/'. $post -> image)}}" alt="" style="width: 200px; width: 200px">
             
             </div>
             <label for="image">Cover Photo</label> <br>

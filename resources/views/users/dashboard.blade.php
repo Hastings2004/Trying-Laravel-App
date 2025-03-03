@@ -43,7 +43,7 @@
                     <form action="{{route('posts.destroy', $post)}}" method="post">
                         @csrf
                         @method('DELETE')
-                        <div style="display: flex;">
+                        <div style="display: flex; margin:20px">
                             <a href="{{route('posts.edit', $post)}}" style="background-color: green; text-decoration:none; color:white; border:2px solid green; margin-left:70%; padding:5px; border-radius:9px">Update</a>
                     
                             <button style="background-color: red; color:white; border:2px solid red; margin-left:8%; padding:5px; border-radius:9px">Delete</button>

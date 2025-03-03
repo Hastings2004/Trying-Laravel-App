@@ -1,8 +1,8 @@
 @props(['post', 'full' => false])
 
-    <div style="background-color:aliceblue;width:43%; border-radius:10px; margin:20px;padding:20px;">
+    <div style="background-color:aliceblue;width:350px; border-radius:10px; margin:20px;padding:40px;">
         <div style="padding: 20px; margin:20px">
-            <img src="{{asset('storage/'. $post -> image)}}" alt="" style="width: 100%; width: 90%">
+            <img src="{{asset('storage/'. $post -> image)}}" alt="" style="width: 200px; width: 200px">
         
         </div>
         <h2>{{ $post-> title }}</h2>
